@@ -1,0 +1,629 @@
+body {
+  margin: 0;
+  background-color: black;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background: black;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+main {
+  padding-top: 80px;
+  background-color: black;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+}
+
+.link-removal {
+  cursor: pointer;
+  color: #000;
+  text-decoration: none;
+}
+
+#intro-to-narutoverse {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+  overflow: hidden;
+  text-align: center;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#intro-to-narutoverse::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../assets/images/japan-peaceful-background.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: brightness(65%) contrast(1.1) saturate(1.1);
+  z-index: 0;
+}
+
+#intro-to-narutoverse p,
+.intro-button {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+#title-intro {
+  font-size: 58px;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 10px 0;
+}
+
+#description-intro {
+  font-size: 20px;
+  max-width: 600px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  margin-bottom: 25px;
+}
+
+.intro-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 28px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.intro-button:nth-of-type(odd):hover {
+  border-color: darkgoldenrod;
+  background-color: yellow;
+  color: orangered;
+  box-shadow: 0 0 20px 4px rgba(255, 165, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.intro-button:nth-of-type(even):hover {
+  border-color: black;
+  background-color: cyan;
+  color: purple;
+  box-shadow: 0 0 20px 4px rgba(128, 0, 255, 0.7);
+  transform: scale(1.05);
+}
+
+.naruto,
+.shippuden,
+.boruto {
+  position: relative;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 60px auto;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+}
+
+.naruto-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/images/bg_naruto.webp");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.8);
+}
+
+.shippuden-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/images/shippuden.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.75);
+}
+
+.boruto-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/images/bg-boruto.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.6);
+}
+
+.naruto-gradient,
+.shippuden-gradient,
+.boruto-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #000, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.naruto-content,
+.shippuden-content,
+.boruto-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.naruto h2,
+.shippuden h2,
+.boruto h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.naruto-description,
+.shippuden-description,
+.boruto-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.naruto-stats,
+.shippuden-stats,
+.boruto-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.naruto-stat,
+.shippuden-stat,
+.boruto-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.naruto-stat-label,
+.shippuden-stat-label,
+.boruto-stat-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.naruto-stat-value,
+.shippuden-stat-value,
+.boruto-stat-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#featured-characters {
+  background-color: #0f0f0f;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+#featured-characters p:nth-child(1) {
+  font-size: 42px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #facc15;
+}
+
+#featured-characters p:nth-child(2) {
+  font-size: 26px;
+  color: #d1d5db;
+  margin-bottom: 40px;
+}
+
+#featured-character {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+article {
+  border: 1px solid aliceblue;
+  background-color: white;
+  color: black;
+  margin: 6px 0;
+}
+
+.character {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+#featured-character figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#featured-character figure:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(255, 165, 0, 0.3);
+}
+
+#featured-character figcaption {
+  padding: 15px 20px;
+  text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-family: monospace !important;
+  font-size: 30px !important;
+  margin: 5px 0 !important;
+}
+
+.role {
+  color: #f97316 !important;
+  font-size: 12px !important;
+  margin: 5px 0 !important;
+}
+
+.desc {
+  color: rgb(75, 85, 99);
+  margin: 5px 0 !important;
+}
+
+.learn-more {
+  color: #f97316;
+  margin: 5px 0 !important;
+}
+
+#chakra-loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+#chakra-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.chakra-img {
+  width: 120px;
+  height: 120px;
+  transform-origin: 86.64% 13%;
+  margin: 0 100px 16px 0;
+  animation: kunaiSpin 1.5s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.8));
+}
+
+#chakra-loader p {
+  color: white;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 1);
+}
+
+@keyframes kunaiSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+section > h2 {
+  color: cyan;
+  text-align: center;
+  margin: 30px auto;
+  font-size: 40px;
+  scroll-margin-top: 100px;
+}
+
+#characters,
+#tailed-beasts,
+#akatsuki,
+#kara {
+  scroll-margin-top: 100px;
+}
+
+#characters-section,
+#tailed-beasts-section,
+#akatsuki-section,
+#kara-section {
+  background-color: #0b0b0b;
+  padding: 50px 20px;
+  text-align: center;
+  columns: #fff;
+}
+
+#characters-section h2,
+#tailed-beasts-section h2,
+#akatsuki-section h2,
+#kara-section h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #facc15;
+  text-shadow: 0 0 15px rgba(255, 170, 0, 0.8);
+  margin-bottom: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 0 10px;
+}
+
+.characters-card,
+.tailed-beasts-card,
+.akatsuki-card,
+.kara-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.characters-card:hover,
+.tailed-beasts-card:hover,
+.akatsuki-card:hover,
+.kara-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.5);
+}
+
+.characters-card img,
+.tailed-beasts-card img,
+.akatsuki-card img,
+.kara-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.characters-card h3,
+.tailed-beasts-card h3,
+.akatsuki-card h3,
+.kara-card h3 {
+  color: #facc15;
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
+}
+
+.details-btn-characters,
+.details-btn-tailed-beasts,
+.details-btn-akatsuki,
+.details-btn-kara {
+  background-color: #facc15;
+  color: #000;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.details-btn-characters:hover,
+.details-btn-tailed-beasts:hover,
+.details-btn-akatsuki:hover,
+.details-btn-kara:hover {
+  background-color: #ffe44d;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 15px;
+}
+
+.pagination button {
+  background-color: #facc15;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #ffd84d;
+  transform: translateY(-2px);
+}
+
+.pagination button:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+#stats-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: linear-gradient(90deg, #f97316, #3b82f6);
+  border-radius: 12px;
+  padding: 30px 40px;
+  width: 80%;
+  max-width: 900px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  gap: 6px;
+  text-align: center;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.stat-item h3 {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 5px 0;
+}
+
+.stat-item p {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+#back-to-top {
+  color: #fff;
+  font-weight: bold;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  gap: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+  cursor: pointer;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
+}
+
+#shruiken {
+  height: 60px;
+  width: 60px;
+  animation: shruikenRotate 4s linear infinite;
+}
+
+#page-top {
+  color: orangered;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#more-info {
+  margin: 60px auto 20px;
+  text-align: center;
+  background: linear-gradient(90deg, #f97316, #facc15);
+  border-radius: 12px;
+  padding: 20px 30px;
+  width: fit-content;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
+#more-info:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.9);
+}
+
+#more-info a {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+#more-info a:hover {
+  color: #fff;
+}

@@ -1,0 +1,138 @@
+footer {
+  background-color: #111827;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ====== Top Flex Container ====== */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 50px;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+/* ====== Left Section ====== */
+.footer-about {
+  max-width: 400px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#logo-footer {
+  height: 80px;
+  margin-right: 15px;
+}
+
+.footer-title {
+  font-size: 22px;
+  margin-top: 18px;
+  color: #facc15;
+}
+
+.footer-about p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+/* ====== Middle Section ====== */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-links h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  margin-top: 27px;
+  color: #facc15;
+}
+
+.footer-link {
+  color: #01cd98;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #ff652d;
+}
+
+/* ====== Right Section ====== */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-contact h3 {
+  font-size: 22px;
+  margin-top: 27px;
+  margin-bottom: 20px;
+  color: #facc15;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons img {
+  height: 32px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 5px #facc15);
+}
+
+.footer-contact p {
+  font-size: 16px;
+  color: white;
+}
+
+/* ====== Divider ====== */
+.footer-divider {
+  border: 0;
+  height: 1px;
+  background-color: #1f2937;
+  margin: 0 50px;
+}
+
+/* ====== Bottom Section ====== */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.sharingan {
+  height: 30px;
+  transform-origin: center;
+  animation: sharinganRotate 2s linear infinite;
+}
+
+#genjutsu-free {
+  font-size: 18px;
+  color: white;
+}
+
+@keyframes sharinganRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

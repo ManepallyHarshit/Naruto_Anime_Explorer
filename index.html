@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <script type="module" defer src="scripts/main.js"></script>
+    <title>Naruto Anime Explorer</title>
+  </head>
+  <body>
+    <div class="background">
+      <!--Header Section-->
+      <header>
+        <div class="left-section">
+          <img
+            id="logo-header"
+            src="assets/images/naruto-explorer-high-resolution-logo.png"
+            alt="Naruto logo"
+          />
+          <h2 class="header-topic" id="top">Naruto Anime Explorer</h2>
+        </div>
+        <div class="middle-section">
+          <a href="#characters" id="characters-header" class="link-removal">Characters</a>
+          <a href="#tailed-beasts" id="tailed-beasts-header" class="link-removal">Tailed Beasts</a>
+          <a href="#akatsuki" id="akatsuki-header" class="link-removal">Akatsuki</a>
+          <a href="#kara" id="kara-header" class="link-removal">Kara</a>
+        </div>
+        <div class="right-section">
+          <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" placeholder="Search..." class="search-input" aria-label="Search site" />
+                <img
+                  src="assets/icons/search.svg"
+                  alt="Search"
+                  class="search-icon"
+                />
+              </div>
+          </div>
+        </div>
+      </header>
+
+      <!--Main Section-->
+      <main>
+        <div id="intro-to-narutoverse">
+          <p id="title-intro">Explore the Naruto Verse</p>
+          <p id="description-intro">
+            Discover legendary ninja, powerful villains, and impressive jutsu in the ultimate Naruto database.
+          </p>
+          <div>
+            <a href="#characters" class="intro-button link-removal">Explore Characters</a>
+            <a href="#akatsuki" class="intro-button link-removal">Explore Antagonists</a>
+          </div>
+        </div>
+
+        <div class="naruto">
+          <div class="naruto-bg"></div>
+          <div class="naruto-gradient"></div>
+          <div class="naruto-content">
+            <h2>NARUTO</h2>
+            <p class="naruto-description">
+              A young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.
+            </p>
+
+            <div class="naruto-stats">
+              <div class="naruto-stat">
+                <span class="naruto-stat-label">Episodes</span>
+                <p class="naruto-stat-value">220</p>
+              </div>
+              <div class="divider"></div>
+              <div class="naruto-stat">
+                <span class="naruto-stat-label">Status</span>
+                <p class="naruto-stat-value">Completed</p>
+              </div>
+              <div class="divider"></div>
+              <div class="naruto-stat">
+                <span class="naruto-stat-label">Genre</span>
+                <p class="naruto-stat-value">Action</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shippuden">
+          <div class="shippuden-bg"></div>
+          <div class="shippuden-gradient"></div>
+          <div class="shippuden-content">
+            <h2>Naruto: Shippuden</h2>
+            <p class="shippuden-description">
+              The older Naruto returns from years of training with Jiraiya to face Akatsuki and protect his village.
+            </p>
+
+            <div class="shippuden-stats">
+              <div class="shippuden-stat">
+                <span class="shippuden-stat-label">Episodes</span>
+                <p class="shippuden-stat-value">500</p>
+              </div>
+              <div class="divider"></div>
+              <div class="shippuden-stat">
+                <span class="shippuden-stat-label">Status</span>
+                <p class="shippuden-stat-value">Completed</p>
+              </div>
+              <div class="divider"></div>
+              <div class="shippuden-stat">
+                <span class="shippuden-stat-label">Genre</span>
+                <p class="shippuden-stat-value">Action / Adventure</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="boruto">
+          <div class="boruto-bg"></div>
+          <div class="boruto-gradient"></div>
+          <div class="boruto-content">
+            <h2>Boruto: Naruto Next Generations</h2>
+            <p class="boruto-description">
+              Boruto Uzumaki, son of Naruto, seeks to carve out his own legacy while facing new threats. He wants to prove himself beyond being "the Hokage's son."
+            </p>
+
+            <div class="boruto-stats">
+              <div class="boruto-stat">
+                <span class="boruto-stat-label">Episodes</span>
+                <p class="boruto-stat-value">293</p>
+              </div>
+              <div class="divider"></div>
+              <div class="boruto-stat">
+                <span class="boruto-stat-label">Status</span>
+                <p class="boruto-stat-value">Completed</p>
+              </div>
+              <div class="divider"></div>
+              <div class="boruto-stat">
+                <span class="boruto-stat-label">Genre</span>
+                <p class="boruto-stat-value">Action / Adventure</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="chakra-loader" role="status" aria-live="polite">
+          <img
+            src="assets/images/kunai-loader.png"
+            alt="Loading..."
+            class="chakra-img"
+            loading="eager"
+          />
+          <p>Preparing jutsu and shinobi data</p>
+        </div>
+
+        <section id="characters">
+          <h2>Characters</h2>
+
+          <div class="container" id="cards-characters"></div>
+
+          <nav class="pagination">
+            <button id="prev-characters" disabled>Prev</button>
+            <span id="page-info-characters">Page 1</span>
+            <button id="next-characters">Next</button>
+          </nav>
+        </section>
+
+        <section id="tailed-beasts">
+          <h2>Tailed Beasts</h2>
+
+          <div class="container" id="cards-tailed-beasts"></div>
+
+          <nav class="pagination">
+            <button id="prev-tailed-beasts" disabled>Prev</button>
+            <span id="page-info-tailed-beasts">Page 1</span>
+            <button id="next-tailed-beasts">Next</button>
+          </nav>
+        </section>
+
+        <section id="akatsuki">
+          <h2>Akatsuki</h2>
+
+          <div class="container" id="cards-akatsuki"></div>
+
+          <nav class="pagination">
+            <button id="prev-akatsuki" disabled>Prev</button>
+            <span id="page-info-akatsuki">Page 1</span>
+            <button id="next-akatsuki">Next</button>
+          </nav>
+        </section>
+
+        <section id="kara">
+          <h2>Kara</h2>
+
+          <div class="container" id="cards-kara"></div>
+
+          <nav class="pagination">
+            <button id="prev-kara" disabled>Prev</button>
+            <span id="page-info-kara">Page 1</span>
+            <button id="next-kara">Next</button>
+          </nav>
+        </section>
+
+        <section id="stats-section">
+          <div class="stats-container">
+            <div class="stat-item">
+              <img src="assets/icons/people-icon.png" alt="Characters Icon" class="stat-icon" loading="lazy">
+              <h3>500+</h3>
+              <p>Characters</p>
+            </div>
+            <div class="stat-item">
+              <img src="assets/icons/jutsu-icon.png" alt="Jutsu Icon" class="stat-icon" loading="lazy">
+              <h3>1000+</h3>
+              <p>Jutsu Techniques</p>
+            </div>
+          </div>
+        </section>
+
+        <div id="back-to-top">
+          <img src="assets/images/shruiken.png" alt="Shruiken" id="shruiken" loading="lazy">
+          <a href="#top" id="page-top">PAGE TOP</a>
+        </div>
+      </main>
+
+      <!--Footer Section-->
+      <footer>
+        <div class="footer-container">
+          <!-- Left Section -->
+          <div class="footer-about">
+            <div class="footer-logo">
+              <img
+                src="assets/images/naruto-explorer-high-resolution-logo.png"
+                alt="Naruto logo"
+                id="logo-footer"
+                loading="lazy"
+              />
+              <h2 class="footer-title">Naruto Anime Explorer</h2>
+            </div>
+            <p>
+              Your ultimate destination for exploring the world of Naruto. Discover characters, villains, jutsu, and more from the beloved anime series.
+            </p>
+          </div>
+
+          <!-- Middle Section -->
+          <div class="footer-links">
+            <h3>Explore</h3>
+            <a href="#characters" class="footer-link">Characters</a>
+            <a href="#tailed-beasts" class="footer-link">Tailed Beasts</a>
+            <a href="#akatsuki" class="footer-link">Akatsuki</a>
+            <a href="#kara" class="footer-link">Kara</a>
+          </div>
+
+          <!-- Right Section -->
+          <div class="footer-contact">
+            <h3>Contact Me</h3>
+            <div class="social-icons">
+              <a
+                href="https://www.instagram.com/harshitmanepally/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <img src="assets/icons/instagram-icon.png" alt="Instagram" loading="lazy"/>
+              </a>
+              <a
+                href="https://wa.me/917842213665?text=Contact%20me%20through%20this%20number%20only"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <img src="assets/icons/whatsapp-icon.png" alt="WhatsApp" loading="lazy"/>
+              </a>
+              <a
+                href="https://www.facebook.com/share/1G3oKUxpyf/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <img src="assets/icons/facebook-icon.png" alt="Facebook" loading="lazy"/>
+              </a>
+            </div>
+            <p>~ M Harshit</p>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <img
+            src="assets/images/sharingan.jpg"
+            alt="Sharingan"
+            class="sharingan"
+          />
+          <span id="genjutsu-free">Free of any Genjutsu</span>
+          <img
+            src="assets/images/sharingan.jpg"
+            alt="Sharingan"
+            class="sharingan"
+          />
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

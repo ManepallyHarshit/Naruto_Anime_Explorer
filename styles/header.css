@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  background-color: black;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.background {
+  position: relative;
+}
+
+header {
+  height: 80px;
+  background-color: #ffffff;
+  background-repeat: repeat-x;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.left-section,
+.middle-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logo-header {
+  height: 80px;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  background: transparent;
+}
+
+.header-topic {
+  margin: 0;
+  color: orangered;
+  font-weight: bold;
+  font-size: 28px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+#characters-header,
+#akatsuki-header,
+#kara-header,
+#tailed-beasts-header {
+  font-size: 20px;
+  margin: 0 15px;
+}
+
+#characters-header:hover,
+#akatsuki-header:hover,
+#kara-header:hover,
+#tailed-beasts-header:hover {
+  color: #f97316;
+}
+
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 35px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.search-icon:active {
+  border-color: black;
+  box-shadow: 0 0 0 3px black;
+  background-color: lightgray;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 48px 12px 16px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}

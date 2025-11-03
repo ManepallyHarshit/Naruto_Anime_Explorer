@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/error.css" />
+    <title>Error: 404</title>
+  </head>
+  <body>
+    <figure>
+      <video
+        src="assets/video/WhatsApp Video 2025-10-27 at 20.54.24_a0b737c9.mp4"
+        type="video/mp4"
+        id="itachi"
+        muted
+      ></video>
+      <figcaption id="hiddenText" class="hidden">
+        You have been caught in a Genjutsu! (404)
+      </figcaption>
+      <figcaption id="genjutsu">&minus;&gt; Click Me &lt;&minus;</figcaption>
+    </figure>
+    <audio
+      id="amaterasu"
+      src="assets/audio/itachi_amaterasu.mp3"
+      type="audio/mp3"
+      muted
+    ></audio>
+
+    <script>
+      window.onload = function () {
+        const audio = document.getElementById("amaterasu");
+        const play = document.getElementById("genjutsu");
+        const video = document.getElementById("itachi");
+        const visualise = document.getElementById("hiddenText");
+
+        const duration = 4000;
+
+        play.addEventListener("click", function () {
+          if (!video.paused) {
+            return;
+          }
+
+          visualise.classList.remove("hidden");
+          audio.muted = false;
+          audio.play();
+          video.muted = false;
+          video.play();
+
+          setTimeout(function () {
+            audio.pause();
+            audio.muted = true;
+            video.pause();
+            video.muted = true;
+            visualise.classList.add("hidden");
+
+            video.currentTime = 0;
+          }, duration);
+        });
+      };
+    </script>
+  </body>
+</html>

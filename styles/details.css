@@ -1,0 +1,241 @@
+/* Font + Base Setup */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, #0a0a0a, #000);
+  color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------ */
+/* 🔙 BACK BUTTON STYLING */
+/* ------------------------------ */
+a[aria-label="Back to home"] {
+  display: inline-block;
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  text-decoration: none;
+  color: #fcbf49;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid #fcbf49;
+  padding: 8px 20px;
+  border-radius: 30px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(252, 191, 73, 0.2);
+}
+
+a[aria-label="Back to home"]:hover {
+  background-color: #fcbf49;
+  color: #111;
+  transform: translateX(-5px);
+  box-shadow: 0 0 18px rgba(252, 191, 73, 0.4);
+}
+
+/* ------------------------------ */
+/* 🌀 LOADER STYLING */
+/* ------------------------------ */
+#chakra-loader {
+  position: fixed;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(5, 5, 5, 0.85);
+  z-index: 999;
+}
+
+#chakra-loader img {
+  width: 80px;
+  height: 80px;
+  animation: spin 1.2s linear infinite;
+}
+
+#chakra-loader p {
+  margin-top: 15px;
+  color: #fcbf49;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+#chakra-loader.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------------------------ */
+/* 🧾 DETAILS SECTION */
+/* ------------------------------ */
+#details {
+  margin: 50px auto 50px;
+  background: linear-gradient(145deg, #121212, #1a1a1a);
+  border: 1px solid #fcbf49;
+  border-radius: 14px;
+  padding: 40px;
+  max-width: 850px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(252, 191, 73, 0.25);
+  transition: all 0.3s ease;
+}
+
+#details:hover {
+  box-shadow: 0 0 45px rgba(252, 191, 73, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Title */
+#details h2 {
+  color: #fcbf49;
+  font-size: 2.4rem;
+  text-shadow: 0 0 18px rgba(252, 191, 73, 0.5);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* Image */
+#details img {
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #fcbf49;
+  box-shadow: 0 0 25px rgba(252, 191, 73, 0.3);
+  margin: 25px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#details img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(252, 191, 73, 0.5);
+}
+
+/* Details Info List */
+#details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 80%;
+  text-align: left;
+}
+
+#details ul li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 16px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border-left: 4px solid #fcbf49;
+  line-height: 1.6;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.jutsu-list {
+  display: inline-block;
+  line-height: 1.8;
+  word-wrap: break-word;
+}
+
+.jutsu {
+  color: #f1faee;
+  font-style: italic;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  margin: 2px;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.jutsu:hover {
+  background: rgba(252, 191, 73, 0.2);
+  transform: scale(1.05);
+}
+
+.toggle-jutsu {
+  margin-left: 10px;
+  background: none;
+  border: 1px solid #fcbf49;
+  color: #fcbf49;
+  font-size: 0.9rem;
+  padding: 2px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-jutsu:hover {
+  background-color: #fcbf49;
+  color: #111;
+}
+
+#details ul li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+#details ul li b {
+  color: #fcbf49;
+}
+
+/* ------------------------------ */
+/* 🌈 CATEGORY COLOR ACCENTS */
+/* ------------------------------ */
+.characters-details b {
+  color: #00b4d8;
+}
+
+.tailed-beasts-details b {
+  color: #ff006e;
+}
+
+.akatsuki-details b {
+  color: #e63946;
+}
+
+.kara-details b {
+  color: #8338ec;
+}
+
+/* ------------------------------ */
+/* 📱 RESPONSIVE DESIGN */
+/* ------------------------------ */
+@media (max-width: 768px) {
+  a[aria-label="Back to home"] {
+    top: 20px;
+    left: 20px;
+    font-size: 1rem;
+    padding: 6px 14px;
+  }
+
+  #details {
+    padding: 25px;
+    margin-top: 100px;
+  }
+
+  #details img {
+    width: 200px;
+  }
+
+  #details h2 {
+    font-size: 1.9rem;
+  }
+
+  #details ul li {
+    font-size: 0.95rem;
+  }
+}
