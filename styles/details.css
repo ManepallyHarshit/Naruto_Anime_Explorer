@@ -43,32 +43,46 @@ a[aria-label="Back to home"]:hover {
 #chakra-loader {
   position: fixed;
   inset: 0;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(5px);
   z-index: 999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease, visibility 1s ease;
 }
 
 #chakra-loader img {
-  width: 80px;
-  height: 80px;
-  animation: spin 1.2s linear infinite;
+  width: 120px;
+  height: 120px;
+  transform-origin: 86.64% 13%;
+  margin: 0 100px 16px 0;
+  animation: kunaiSpin 1.5s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.8));
 }
 
 #chakra-loader p {
+  color: white;
   margin-top: 15px;
-  color: #fcbf49;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 1);
 }
 
 #chakra-loader.hidden {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-@keyframes spin {
+@keyframes kunaiSpin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
     transform: rotate(360deg);
   }
