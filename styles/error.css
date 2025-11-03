@@ -1,3 +1,4 @@
+/*Video*/
 video {
   height: 80vh;
   display: block;
@@ -16,6 +17,7 @@ figcaption {
   color: white;
 }
 
+/*Hidden Text*/
 #hiddenText {
   opacity: 1;
   visibility: visible;

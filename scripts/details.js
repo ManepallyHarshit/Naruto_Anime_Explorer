@@ -1,4 +1,4 @@
-// 🌀 Loading Part
+// Loading Part
 const loader = document.getElementById("chakra-loader");
 
 function showLoader() {
@@ -15,14 +15,14 @@ function hideLoader() {
   }, 900);
 }
 
-// 🦊 API Data Retrieval
+// API Data Retrieval
 import { fetchData, getQueryParam } from "./utils.js";
 
 const id = getQueryParam("id");
 const name = getQueryParam("name");
 const category = getQueryParam("category") || "characters";
 
-// ✅ Correct key mapping
+// Correct key mapping
 const keyMap = {
   characters: "characters",
   villages: "villages",
@@ -74,14 +74,13 @@ async function loadDetails() {
 
     if (id) {
       const apiUrl = `https://dattebayo-api.onrender.com/${category}/${id}`;
-      console.log("📡 Fetching by ID:", apiUrl);
+      console.log("Fetching by ID:", apiUrl);
       item = await fetchData(apiUrl);
     } else if (name) {
-      console.log("🔍 Searching by name:", name);
+      console.log("Searching by name:", name);
       item = await findDataByName(name, category);
     }
 
-    // 🧠 Unwrap nested objects like { tailedBeast: {...} }
     if (item && typeof item === "object") {
       const possibleInner = Object.values(item).find(
         (v) => v && typeof v === "object" && v.name
@@ -92,7 +91,7 @@ async function loadDetails() {
     hideLoader();
 
     if (!item) {
-      console.error("❌ No data found for:", category);
+      console.error("No data found for:", category);
       smoothRedirectTo404();
       return;
     }
@@ -109,12 +108,12 @@ async function loadDetails() {
       }
     });
   } catch (error) {
-    console.error("💥 Error loading details:", error);
+    console.error("Error loading details:", error);
     smoothRedirectTo404();
   }
 }
 
-// 🌫️ Smooth redirect with fade
+// Smooth redirect with fade
 function smoothRedirectTo404() {
   document.body.style.transition = "opacity 0.6s ease";
   document.body.style.opacity = "0";
@@ -123,7 +122,7 @@ function smoothRedirectTo404() {
   }, 600);
 }
 
-// 💎 Display logic
+// Display logic
 function displayDetails(item, category) {
   const detailsDiv = document.getElementById("details");
   const safeImg =
@@ -135,7 +134,7 @@ function displayDetails(item, category) {
 
   switch (category) {
     case "characters":
-      // ✅ Limit long Jutsu lists with toggle dropdown
+      // No Long Jutsu lists using toggle dropdown
       const maxVisibleJutsu = 5;
       const jutsus = item.jutsu || [];
       let jutsuHTML = "Unknown";

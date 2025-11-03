@@ -4,7 +4,7 @@ footer {
   font-family: 'Poppins', sans-serif;
 }
 
-/* ====== Top Flex Container ====== */
+/*Top Container*/
 .footer-container {
   display: flex;
   justify-content: space-between;
@@ -14,7 +14,7 @@ footer {
   gap: 50px;
 }
 
-/* ====== Left Section ====== */
+/*Left Section*/
 .footer-about {
   max-width: 400px;
 }
@@ -42,7 +42,7 @@ footer {
   color: #d1d5db;
 }
 
-/* ====== Middle Section ====== */
+/*Middle Section*/
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -67,7 +67,7 @@ footer {
   color: #ff652d;
 }
 
-/* ====== Right Section ====== */
+/*Right Section*/
 .footer-contact {
   display: flex;
   flex-direction: column;
@@ -100,7 +100,7 @@ footer {
   color: white;
 }
 
-/* ====== Divider ====== */
+/*Divider*/
 .footer-divider {
   border: 0;
   height: 1px;
@@ -108,7 +108,7 @@ footer {
   margin: 0 50px;
 }
 
-/* ====== Bottom Section ====== */
+/*Bottom Section*/
 .footer-bottom {
   display: flex;
   align-items: center;

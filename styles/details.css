@@ -1,4 +1,4 @@
-/* Font + Base Setup */
+/*Base Setup*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 * {
@@ -14,9 +14,7 @@ body {
   padding: 0;
 }
 
-/* ------------------------------ */
-/* 🔙 BACK BUTTON STYLING */
-/* ------------------------------ */
+/*Back Button*/
 a[aria-label="Back to home"] {
   display: inline-block;
   position: absolute;
@@ -41,9 +39,7 @@ a[aria-label="Back to home"]:hover {
   box-shadow: 0 0 18px rgba(252, 191, 73, 0.4);
 }
 
-/* ------------------------------ */
-/* 🌀 LOADER STYLING */
-/* ------------------------------ */
+/*Loading chakra*/
 #chakra-loader {
   position: fixed;
   inset: 0;
@@ -78,9 +74,7 @@ a[aria-label="Back to home"]:hover {
   }
 }
 
-/* ------------------------------ */
-/* 🧾 DETAILS SECTION */
-/* ------------------------------ */
+/*Details Section*/
 #details {
   margin: 50px auto 50px;
   background: linear-gradient(145deg, #121212, #1a1a1a);
@@ -99,7 +93,7 @@ a[aria-label="Back to home"]:hover {
   transform: translateY(-2px);
 }
 
-/* Title */
+/*Title*/
 #details h2 {
   color: #fcbf49;
   font-size: 2.4rem;
@@ -108,7 +102,7 @@ a[aria-label="Back to home"]:hover {
   letter-spacing: 1px;
 }
 
-/* Image */
+/*Image*/
 #details img {
   width: 250px;
   height: auto;
@@ -124,7 +118,7 @@ a[aria-label="Back to home"]:hover {
   box-shadow: 0 0 40px rgba(252, 191, 73, 0.5);
 }
 
-/* Details Info List */
+/*Details Info List*/
 #details ul {
   list-style: none;
   padding: 0;
@@ -192,9 +186,7 @@ a[aria-label="Back to home"]:hover {
   color: #fcbf49;
 }
 
-/* ------------------------------ */
-/* 🌈 CATEGORY COLOR ACCENTS */
-/* ------------------------------ */
+/*Color Accents*/
 .characters-details b {
   color: #00b4d8;
 }
@@ -211,9 +203,7 @@ a[aria-label="Back to home"]:hover {
   color: #8338ec;
 }
 
-/* ------------------------------ */
-/* 📱 RESPONSIVE DESIGN */
-/* ------------------------------ */
+/*Responsive Design*/
 @media (max-width: 768px) {
   a[aria-label="Back to home"] {
     top: 20px;
@@ -238,4 +228,128 @@ a[aria-label="Back to home"]:hover {
   #details ul li {
     font-size: 0.95rem;
   }
+}
+
+/*Featured Characters*/
+#featured-characters {
+  background-color: #0f0f0f;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+#featured-characters p:nth-child(1) {
+  font-size: 42px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #facc15;
+}
+
+#featured-characters p:nth-child(2) {
+  font-size: 26px;
+  color: #d1d5db;
+  margin-bottom: 40px;
+}
+
+#featured-character {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+article {
+  border: 1px solid aliceblue;
+  background-color: white;
+  color: black;
+  margin: 6px 0;
+}
+
+.character {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+#featured-character figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#featured-character figure:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(255, 165, 0, 0.3);
+}
+
+#featured-character figcaption {
+  padding: 15px 20px;
+  text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-family: monospace !important;
+  font-size: 30px !important;
+  margin: 5px 0 !important;
+}
+
+.role {
+  color: #f97316 !important;
+  font-size: 12px !important;
+  margin: 5px 0 !important;
+}
+
+.desc {
+  color: rgb(75, 85, 99);
+  margin: 5px 0 !important;
+}
+
+.learn-more {
+  color: #f97316;
+  margin: 5px 0 !important;
+}
+
+/*More Info*/
+#more-info {
+  margin: 60px auto 20px;
+  text-align: center;
+  background: linear-gradient(90deg, #f97316, #facc15);
+  border-radius: 12px;
+  padding: 20px 30px;
+  width: fit-content;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
+#more-info:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.9);
+}
+
+#more-info a {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+#more-info a:hover {
+  color: #fff;
 }

@@ -1,3 +1,116 @@
+//Search Part
+
+const searchInput = document.querySelector(".search-input");
+const searchResults = document.createElement("div");
+searchResults.classList.add("search-results");
+searchInput.closest(".search-container").appendChild(searchResults);
+
+let searchTimeout;
+
+searchInput.addEventListener("input", () => {
+  clearTimeout(searchTimeout);
+  const query = searchInput.value.trim().toLowerCase();
+
+  if(!query){
+    searchResults.innerHTML = "";
+    return;
+  }
+
+  searchTimeout = setTimeout(() => searchDattebayyo(query), 400);
+});
+
+async function searchDattebayyo(query) {
+  const categories = ["characters", "tailed-beasts", "akatsuki", "kara"];
+  searchResults.innerHTML = "<p style='padding: 10px;'>Searching...</p>";
+
+  try {
+  const promises = categories.map((cat) => {
+    return fetch(`https://dattebayo-api.onrender.com/${cat}?limit=100`)
+      .then((res) => res.json())
+      .then((data) => ({
+        category: cat,
+        items:data[cat.replace("-", "")] ||
+              data[cat] ||
+              Object.values(data).find((v) => Array.isArray(v))
+      }));
+  });
+
+  const results = await Promise.all(promises);
+  let combined = [];
+
+  for(const {category, items} of results){
+    if(!items) continue;
+    const filtered = items.filter((item) =>
+      item.name && item.name.toLowerCase().includes(query));
+    combined = combined.concat(
+      filtered.map((item) => ({
+        id: item.id,
+        name: item.name,
+        category,
+      }))
+    );
+    }
+    displaySearchResults(combined.slice(0, 12));
+  } catch (err) {
+    console.error("Search error:", err);
+    searchResults.innerHTML = "<p style='padding: 10px;'>Error during search.</p>";
+  }
+}
+
+function displaySearchResults(results) {
+  searchResults.innerHTML = "";
+  if (results.length === 0) {
+    searchResults.innerHTML = "<p style='padding: 10px;'>No results found.</p>";
+    return;
+  }
+
+  results.forEach(({ name, id, category }) => {
+    const p = document.createElement("p");
+    p.textContent = `${name} (${category})`;
+    p.style.cursor = "pointer";
+    p.style.padding = "10px";
+    p.addEventListener("mouseover", () => {
+      p.style.backgroundColor = "#facc15",
+      p.style.color = "#000000";
+    });
+    p.addEventListener("mouseout", () => {
+      p.style.backgroundColor = "",
+      p.style.color = "";
+    });
+    p.addEventListener("click", () => {
+      window.location.href = `details.html?id=${id}&category=${category}`;
+    });
+    searchResults.appendChild(p);
+  });
+
+  Object.assign(searchResults.style, {
+    position: "absolute",
+    top: "100%",
+    left: "35px",
+    right: "35px",
+    background: "#1a1a1a",
+    color: "#fff",
+    borderRadius: "10px",
+    maxHeight: "300px",
+    overflowY: "auto",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.5)",
+    zIndex: "2000",
+    marginTop: "6px",
+  });
+}
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".search-container")) {
+    searchResults.innerHTML = "";
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    searchResults.innerHTML = "";
+  }
+});
+
 //Loading Part
 
 const loader = document.getElementById("chakra-loader");
@@ -82,7 +195,7 @@ async function loadData(category, page = 1) {
       return;
     }
 
-    // 🔹 Known key mapping to handle singulars and camelCase
+    // Key mapping to handle singulars and camelCase
     const keyMap = {
       characters: "characters",
       "tailed-beasts": "tailedBeasts",
@@ -93,15 +206,12 @@ async function loadData(category, page = 1) {
     const normalizedKeys = Object.keys(data);
     let key = keyMap[category] || category;
 
-    // 🔹 If not found, try fuzzy matching
     if (!data[key]) {
       const possible = Object.keys(data).find(k => k.toLowerCase().includes("tailed"));
       key = possible || key;
     }
 
-    // 🔹 Still not found — give up
     if (!key || !data[key]) {
-      // fallback: try to find the first property that is an array of objects
       const arrEntry = Object.values(data).find((v) => Array.isArray(v) && v.length && typeof v[0] === "object");
 
       if (arrEntry) {
@@ -115,7 +225,6 @@ async function loadData(category, page = 1) {
       return;
     }
 
-      // if data itself is an array, use it
       const items = data[key];
       if (!Array.isArray(items) || items.length === 0) {
         console.error(`Empty array for ${category}`);
@@ -123,17 +232,17 @@ async function loadData(category, page = 1) {
         return;
       }
 
-      console.log(`✅ Loaded ${category}:`, items.length, "items, key used:", key);
+      console.log(`Loaded ${category}:`, items.length, "items, key used:", key);
 
-      // ✅ Pagination fix
+      // Pagination fix
       const pageSize = data.pageSize || items.length || 20;
-      const total = data.total || (data.totalItems ?? items.length * 5); // fallback if API doesn’t include total
+      const total = data.total || (data.totalItems ?? items.length * 5);
       const totalPages = Math.max(1, Math.ceil(total / pageSize));
 
       displayCards(category, items, cardsContainer);
       updatePagination(category, page, totalPages, pageInfo, nextBtn, prevBtn);
 
-      // ✅ Clean event wiring
+      //  Clean event wiring
       if (nextBtn) {
         nextBtn.onclick = null;
         nextBtn.addEventListener("click", () => {
