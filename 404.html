@@ -16,47 +16,103 @@
         muted
       ></video>
       <figcaption id="hiddenText" class="hidden">
-        You have been caught in a Genjutsu! (404)
+        Amaterasu
       </figcaption>
-      <figcaption id="genjutsu">&minus;&gt; Click Me &lt;&minus;</figcaption>
     </figure>
-    <audio
-      id="amaterasu"
-      src="assets/audio/itachi_amaterasu.mp3"
-      type="audio/mp3"
-      muted
-    ></audio>
+
+    <!--Loading Chakra-->
+        <div id="chakra-loader" class="hidden" role="status" aria-live="polite">
+          <img
+            src="assets/images/sharingan.jpg"
+            alt="Genjutsu"
+            class="chakra-img"
+            loading="eager"
+          />
+          <p>You have fallen under a Genjutsu!</p>
+        </div>
 
     <script>
+      // Loading Part
+      const loader = document.getElementById("chakra-loader");
+
+      function showLoader() {
+        if (!loader) return;
+        loader.classList.remove("hidden");
+        loader.classList.add("fade-in");
+        loader.style.display = "flex";
+      }
+
+      function hideLoader() {
+        if (!loader) return;
+        loader.classList.remove("fade-in");
+        loader.classList.add("fade-out");
+        setTimeout(() => {
+          loader.classList.add("hidden");
+          loader.style.display = "none";
+        }, 1000);
+      }
+
+      const continueBtn = document.createElement("button");
+      continueBtn.textContent = "Continue";
+      continueBtn.id = "continuebtn";
+      continueBtn.style.cssText = `
+        background: linear-gradient(135deg, #ff0000, #660000);
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 30px;
+        cursor: pointer;
+        text-shadow: 0 0 10px rgba(255, 50, 50, 1);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+        transition: all 0.3s ease;
+      `;
+      continueBtn.onmouseover = () => (continueBtn.style.transform = "scale(1.1)");
+      continueBtn.onmouseout = () => (continueBtn.style.transform = "scale(1)");
+
       // Itachi Genjutsu 404 Script
       window.onload = function () {
-        const audio = document.getElementById("amaterasu");
-        const play = document.getElementById("genjutsu");
         const video = document.getElementById("itachi");
         const visualise = document.getElementById("hiddenText");
 
-        const duration = 4000;
+        const loaderDuration = 2500;
+        const genjutsuDuration = 4000;
+        const redirectDelay = 1000;
 
-        play.addEventListener("click", function () {
-          if (!video.paused) {
-            return;
-          }
+        showLoader();
 
-          visualise.classList.remove("hidden");
-          audio.muted = false;
-          audio.play();
-          video.muted = false;
-          video.play();
+        setTimeout(() => {
+          hideLoader();
 
-          setTimeout(function () {
-            audio.pause();
-            audio.muted = true;
-            video.pause();
-            video.muted = true;
-            visualise.classList.add("hidden");
+          // Show continue button after fade-out
+          setTimeout(() => {
+            loader.innerHTML = "";
+            loader.appendChild(continueBtn);
+            loader.classList.remove("hidden", "fade-out");
+            loader.style.display = "flex";
+            loader.classList.add("fade-in");
+          }, 1000);
+        }, loaderDuration);
 
+        continueBtn.addEventListener("click", () => {
+          loader.classList.add("fade-out");
+          setTimeout(() => {
+            loader.style.display = "none";
+            visualise.classList.remove("hidden");
+            video.muted = false;
             video.currentTime = 0;
-          }, duration);
+            video.play().catch((err) => console.log("Playback blocked:", err));
+
+            setTimeout(() => {
+              video.pause();
+              visualise.classList.add("hidden");
+              document.body.classList.add("fade-out");
+              setTimeout(() => {
+                window.location.href = "index.html";
+              }, redirectDelay);
+            }, genjutsuDuration);
+          }, 800);
         });
       };
     </script>

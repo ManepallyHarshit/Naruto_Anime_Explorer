@@ -34,17 +34,65 @@ figcaption {
   transition: opacity 0.5s ease-in-out, visibility 0s 0.5s, height 0.5s ease-in-out, margin 0.5s ease-in-out, padding 0.5s ease-in-out;
 }
 
-#genjutsu {
-  cursor: pointer;
-  color: yellow;
-  font-size: 30px;
-  margin: auto;
-}
-
-audio {
-  display: none;
-}
-
 body {
   background: radial-gradient(#870c00 0%, #260300 100%);
+}
+
+/*Loading chakra*/
+#chakra-loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+#chakra-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.chakra-img {
+  width: 120px;
+  height: 120px;
+  animation: spin 1.5s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.8));
+}
+
+#chakra-loader p {
+  color: white;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 1);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-out{
+  animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+  to{
+    opacity: 0;
+    filter: brightness(0);
+  }
 }
