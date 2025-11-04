@@ -25,10 +25,6 @@ const category = getQueryParam("category") || "characters";
 // Correct key mapping
 const keyMap = {
   characters: "characters",
-  villages: "villages",
-  clans: "clans",
-  teams: "teams",
-  "kekkei-genkai": "kekkeiGenkai",
   "tailed-beasts": "tailedBeasts",
   akatsuki: "akatsuki",
   kara: "kara",
