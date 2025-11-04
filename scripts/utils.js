@@ -9,6 +9,7 @@ export async function fetchData(url) {
     return await res.json();
   } catch (error) {
     console.error("Error fetching data:", error);
+    window.location.href = "../404.html";
     return null;
   }
 }
